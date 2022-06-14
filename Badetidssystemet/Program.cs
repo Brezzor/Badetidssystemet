@@ -129,17 +129,13 @@ namespace Badetidssystemet
             catch (ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.WriteLine();
-            }
+            }            
 
             try
             {
-                BadetidsPeriode opgave9 = new BadetidsPeriode() { Type = "Unge", UgeDag = DayOfWeek.Friday, SlutTidspunkt = new DateTime(2022, 6, 14, 22, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0), MaxAlder = 99, MinAlder = 18 };                
-                Console.WriteLine(opgave9);
+                BadetidsPeriode opgave9 = new BadetidsPeriode() { Type = "Unge", UgeDag = DayOfWeek.Friday, SlutTidspunkt = new DateTime(2022, 6, 14, 22, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0), MaxAlder = 99, MinAlder = 18 };                                
                 opgave9.AdderKreds(new Kreds() { ID = "4", Navn = "FDF", Adresse = "Her", AntalDeltagere = 1, MaxAlder = 17, MinAlder = 1 });
+                Console.WriteLine(opgave9);
             }
             catch (ArgumentException ex)
             {

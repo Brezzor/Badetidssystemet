@@ -108,7 +108,7 @@ namespace Badetidssystemet
 
         public virtual void AdderKreds(Kreds kreds)
         {
-            if (!_kreds.ContainsValue(kreds) || kreds.MaxAlder <= _minAlder)
+            if (!_kreds.ContainsValue(kreds) && kreds.MaxAlder !> _minAlder)
             {
                 _kreds.Add(Convert.ToInt32(kreds.ID), kreds);
             }
