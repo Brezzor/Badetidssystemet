@@ -39,9 +39,9 @@ namespace Badetidssystemet
 
             string mid = "";
 
-            foreach (Kreds k in _kredseList)
+            for (int i = 0; i < _kredseList.Count; i++)
             {
-                mid = $"{mid}\n{k}";
+                mid = $"{mid}\n{_kredseList[i]}";
             }
 
             string end = $"{start}" +
