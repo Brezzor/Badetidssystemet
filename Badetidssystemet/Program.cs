@@ -7,11 +7,11 @@ namespace Badetidssystemet
         static void Main(string[] args)
         {
             //opgave 1//
-            Console.WriteLine("Opgave - 1");
-            Console.WriteLine();
+            Console.WriteLine("Opgave - 1");            
 
             try
             {
+                Console.WriteLine();
                 Kreds opgave1 = new Kreds() { ID = "1", Navn = "FDF", Adresse = "Her", AntalDeltagere = 20 };
                 Console.WriteLine(opgave1);
             }
@@ -78,7 +78,7 @@ namespace Badetidssystemet
 
             //opgave 7
 
-            Console.WriteLine("Opgave - 7");
+            Console.WriteLine("Opgave - 7");          
 
             try
             {
@@ -88,11 +88,7 @@ namespace Badetidssystemet
             catch (ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.WriteLine();
-            }
+            }            
 
             try
             {
@@ -102,11 +98,7 @@ namespace Badetidssystemet
             catch (ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.WriteLine();
-            }
+            }            
 
             try
             {
@@ -120,6 +112,26 @@ namespace Badetidssystemet
             finally
             {
                 Console.WriteLine();
+            }
+
+            //Opgave - 10//
+
+            Console.WriteLine("Opgave - 10");            
+
+            try
+            {
+                BadetidsPeriodeForLoopAndList opgave7 = new BadetidsPeriodeForLoopAndList() { Type = "Senior", UgeDag = DayOfWeek.Monday, SlutTidspunkt = new DateTime(2022, 6, 14, 8, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 7, 0, 0) };
+                Console.WriteLine(opgave7);
+                opgave7.SletKreds("3");
+                Console.WriteLine(opgave7);
+                opgave7.AdderKreds(new Kreds() { ID = "3", Navn = "OP10.2", Adresse = "Der", AntalDeltagere = 1 });
+                Console.WriteLine(opgave7);
+                opgave7.StartTidspunkt = new DateTime(2022, 6, 14, 9, 0, 0);
+                Console.WriteLine(opgave7);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
             Console.ReadKey();

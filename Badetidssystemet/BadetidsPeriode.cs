@@ -27,7 +27,7 @@ namespace Badetidssystemet
             {
                 if (value.Length <= 3)
                 {
-                    throw new ArgumentException($"ERROR! Type længde: {value} skal være mindst 4 tegn");
+                    throw new ArgumentException($"\nERROR! Type længde: {value} skal være mindst 4 tegn");
                 }
                 else
                 {
@@ -47,7 +47,7 @@ namespace Badetidssystemet
             {
                 if (value > _slutTidspunkt)
                 {
-                    throw new ArgumentException($"ERROR! {value} skal være før {_slutTidspunkt}");
+                    throw new ArgumentException($"\nERROR! {value} skal være før {_slutTidspunkt}");
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace Badetidssystemet
             {
                 if (value < _startTidspunkt)
                 {
-                    throw new ArgumentException($"ERROR! {value} skal være senere {_startTidspunkt}");
+                    throw new ArgumentException($"\nERROR! {value} skal være senere {_startTidspunkt}");
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace Badetidssystemet
             } 
         }
 
-        public void AdderKreds(Kreds kreds)
+        public virtual void AdderKreds(Kreds kreds)
         {
             if (!_kreds.ContainsValue(kreds))
             {
@@ -80,7 +80,7 @@ namespace Badetidssystemet
             }
         }
 
-        public void SletKreds(string id)
+        public virtual void SletKreds(string id)
         {
             if (_kreds.ContainsKey(Convert.ToInt32(id)))
             {
@@ -96,7 +96,7 @@ namespace Badetidssystemet
             
             string mid = "";
 
-            foreach (var k in _kreds)
+            foreach (Kreds k in _kreds.Values)
             {
                 mid = $"{mid}\n{k}";
             }

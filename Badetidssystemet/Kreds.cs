@@ -25,7 +25,7 @@ namespace Badetidssystemet
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException($"ERROR! Antal deltagere skal være mere end 0");
+                    throw new ArgumentException($"\nERROR! Antal deltagere skal være mere end 0");
                 }
                 else
                 {
