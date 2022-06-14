@@ -10,40 +10,117 @@ namespace Badetidssystemet
             Console.WriteLine("Opgave - 1");
             Console.WriteLine();
 
-            Kreds opgave1 = new Kreds() { ID = "1", Navn = "FDF", Adresse = "Her", AntalDeltagere = 20 };
+            try
+            {
+                Kreds opgave1 = new Kreds() { ID = "1", Navn = "FDF", Adresse = "Her", AntalDeltagere = 20 };
+                Console.WriteLine(opgave1);
+            }
+            catch (ArgumentException ex)
+            {
 
-            Console.WriteLine(opgave1);
-            Console.WriteLine();
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine();
+            }                        
 
             //opgave 2//
 
             Console.WriteLine("Opgave - 2");
 
-            BadetidsPeriode opgave2 = new BadetidsPeriode() { Type = "Børn", UgeDag = DayOfWeek.Friday, StartTidspunkt = new DateTime(2022, 6, 14, 18, 0, 0), SlutTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0) };
-
-            Console.WriteLine(opgave2);
+            try
+            {
+                BadetidsPeriode opgave2 = new BadetidsPeriode() { Type = "Børn", UgeDag = DayOfWeek.Friday, SlutTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 18, 0, 0) };
+                Console.WriteLine(opgave2);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine();
+            }
 
             //opgave 4//
 
             Console.WriteLine("Opgave - 4");
 
-            BadetidsPeriode opgave4 = new BadetidsPeriode() { Type = "Voksne", UgeDag = DayOfWeek.Friday, StartTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0), SlutTidspunkt = new DateTime(2022, 6, 14, 22, 0, 0) };
+            try
+            {
+                BadetidsPeriode opgave40 = new BadetidsPeriode() { Type = "Voksne", UgeDag = DayOfWeek.Friday, SlutTidspunkt = new DateTime(2022, 6, 14, 22, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0) };
+                BadetidsPeriode opgave41 = new BadetidsPeriode() { Type = "Unge", UgeDag = DayOfWeek.Friday, SlutTidspunkt = new DateTime(2022, 6, 14, 22, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0) };
 
-            Console.WriteLine(opgave4);
+                Console.WriteLine(opgave40);
+                Console.WriteLine(opgave41);
 
-            opgave2.SletKreds("1");
-            opgave4.SletKreds("3");
+                opgave40.SletKreds("1");
+                opgave41.SletKreds("3");
 
-            Console.WriteLine(opgave2);
-            Console.WriteLine(opgave4);
+                Console.WriteLine(opgave40);
+                Console.WriteLine(opgave41);
 
-            opgave2.AdderKreds(new Kreds() { ID = "1", Navn = "OP2.0", Adresse = "Her", AntalDeltagere = 21 });
-            opgave4.AdderKreds(new Kreds() { ID = "3", Navn = "OP2.2", Adresse = "Her", AntalDeltagere = 18 });
+                opgave40.AdderKreds(new Kreds() { ID = "1", Navn = "OP2.0", Adresse = "Her", AntalDeltagere = 21 });
+                opgave41.AdderKreds(new Kreds() { ID = "3", Navn = "OP2.2", Adresse = "Her", AntalDeltagere = 18 });
 
-            Console.WriteLine(opgave2);
-            Console.WriteLine(opgave4);
+                Console.WriteLine(opgave40);
+                Console.WriteLine(opgave41);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine();
+            }
 
-            //opgave 6
+            //opgave 7
+
+            Console.WriteLine("Opgave - 7");
+
+            try
+            {
+                BadetidsPeriode opgave70 = new BadetidsPeriode() { Type = "", UgeDag = DayOfWeek.Friday, SlutTidspunkt = new DateTime(2022, 6, 14, 22, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0) };                
+                Console.WriteLine(opgave70);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine();
+            }
+
+            try
+            {
+                BadetidsPeriode opgave71 = new BadetidsPeriode() { Type = "Unge", UgeDag = DayOfWeek.Friday, SlutTidspunkt = new DateTime(2022, 6, 14, 19, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 20, 0, 0) };
+                Console.WriteLine(opgave71);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine();
+            }
+
+            try
+            {
+                Kreds opgave72 = new Kreds() { ID = "1", Navn = "FDF", Adresse = "Her", AntalDeltagere = 0 };
+                Console.WriteLine(opgave72);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine();
+            }
 
             Console.ReadKey();
         }

@@ -6,6 +6,8 @@ namespace Badetidssystemet
 {
     class Kreds
     {
+        private int _antalDeltagere;
+
         public Kreds()
         {
 
@@ -17,7 +19,20 @@ namespace Badetidssystemet
 
         public string Adresse { get; set; }
 
-        public int AntalDeltagere { get; set; }
+        public int AntalDeltagere { 
+            get { return _antalDeltagere; }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException($"ERROR! Antal deltagere skal være mere end 0");
+                }
+                else
+                {
+                    _antalDeltagere = value;
+                }
+            } 
+        }
 
         public override string ToString()
         {

@@ -23,7 +23,17 @@ namespace Badetidssystemet
 
         public string Type {
             get { return _type; }
-            set { _type = value; } 
+            set
+            {
+                if (value.Length <= 3)
+                {
+                    throw new ArgumentException($"ERROR! Type længde: {value} skal være mindst 4 tegn");
+                }
+                else
+                {
+                    _type = value;
+                }
+            } 
         }
 
         public DayOfWeek UgeDag {
@@ -33,12 +43,33 @@ namespace Badetidssystemet
 
         public DateTime StartTidspunkt {
             get { return _startTidspunkt; }
-            set { _startTidspunkt = value; } 
+            set
+            {
+                if (value > _slutTidspunkt)
+                {
+                    throw new ArgumentException($"ERROR! {value} skal være før {_slutTidspunkt}");
+                }
+                else
+                {
+                    _startTidspunkt = value;
+                }
+            } 
         }
 
         public DateTime SlutTidspunkt {
             get { return _slutTidspunkt; }
-            set { _slutTidspunkt = value; } 
+            set 
+            {
+                if (value < _startTidspunkt)
+                {
+                    throw new ArgumentException($"ERROR! {value} skal være senere {_startTidspunkt}");
+                }
+                else
+                {
+                    _slutTidspunkt = value;
+                }
+                 
+            } 
         }
 
         public void AdderKreds(Kreds kreds)
