@@ -11,13 +11,15 @@ namespace Badetidssystemet
         private DayOfWeek _ugeDag = DayOfWeek.Sunday;
         private DateTime _startTidspunkt = new DateTime();
         private DateTime _slutTidspunkt = new DateTime();
+        private int _minAlder;
+        private int _maxAlder;
 
         public BadetidsPeriode()
         {
             _kreds = new Dictionary<int, Kreds> {
-                {1, new Kreds() { ID = "1", Navn = "OP2.0", Adresse = "Her", AntalDeltagere = 21 } },
-                {2, new Kreds() { ID = "2", Navn = "OP2.1", Adresse = "Her", AntalDeltagere = 23 } },
-                {3, new Kreds() { ID = "3", Navn = "OP2.2", Adresse = "Her", AntalDeltagere = 18 } }
+                {1, new Kreds() { ID = "1", Navn = "OP2.0", Adresse = "Her", AntalDeltagere = 21, MaxAlder = 99, MinAlder = 18 } },
+                {2, new Kreds() { ID = "2", Navn = "OP2.1", Adresse = "Her", AntalDeltagere = 23, MaxAlder = 99, MinAlder = 18 } },
+                {3, new Kreds() { ID = "3", Navn = "OP2.2", Adresse = "Her", AntalDeltagere = 18, MaxAlder = 99, MinAlder = 18 } }
             };
         }
 
@@ -72,9 +74,41 @@ namespace Badetidssystemet
             } 
         }
 
+        public int MinAlder
+        {
+            get { return _minAlder; }
+            set
+            {
+                if (value > _maxAlder)
+                {
+                    throw new ArgumentException($"\nERROR! {value} skal være mindre {_maxAlder}");
+                }
+                else
+                {
+                    _minAlder = value;
+                }
+            }
+        }
+
+        public int MaxAlder
+        {
+            get { return _maxAlder; }
+            set
+            {
+                if (value < _minAlder)
+                {
+                    throw new ArgumentException($"\nERROR! {value} skal være større {_minAlder}");
+                }
+                else
+                {
+                    _maxAlder = value;
+                }
+            }
+        }
+
         public virtual void AdderKreds(Kreds kreds)
         {
-            if (!_kreds.ContainsValue(kreds))
+            if (!_kreds.ContainsValue(kreds) || kreds.MaxAlder <= _minAlder)
             {
                 _kreds.Add(Convert.ToInt32(kreds.ID), kreds);
             }
@@ -91,7 +125,7 @@ namespace Badetidssystemet
         public override string ToString()
         {
             string start = $"\nBadetidsperiode" +
-                           $"\n{Type} | {UgeDag} |" +
+                           $"\n{Type} | {UgeDag} | {MinAlder}-{MaxAlder}" +
                            $"\n{StartTidspunkt} | {SlutTidspunkt}";
             
             string mid = "";

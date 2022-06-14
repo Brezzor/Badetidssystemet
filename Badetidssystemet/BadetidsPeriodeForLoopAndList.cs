@@ -12,9 +12,9 @@ namespace Badetidssystemet
         {
             _kredseList = new List<Kreds>() 
             {
-                new Kreds() { ID = "1", Navn = "OP10.0", Adresse = "Der", AntalDeltagere = 5 },
-                new Kreds() { ID = "2", Navn = "OP10.1", Adresse = "Der", AntalDeltagere = 3 },
-                new Kreds() { ID = "3", Navn = "OP10.2", Adresse = "Der", AntalDeltagere = 1 }
+                new Kreds() { ID = "1", Navn = "OP10.0", Adresse = "Der", AntalDeltagere = 5 , MaxAlder = 99, MinAlder = 18 },
+                new Kreds() { ID = "2", Navn = "OP10.1", Adresse = "Der", AntalDeltagere = 3 , MaxAlder = 99, MinAlder = 18 },
+                new Kreds() { ID = "3", Navn = "OP10.2", Adresse = "Der", AntalDeltagere = 1 , MaxAlder = 99, MinAlder = 18 }
             };
         }
 
