@@ -152,14 +152,14 @@ namespace Badetidssystemet
 
             try
             {
-                BadetidsPeriodeForLoopAndList opgave7 = new BadetidsPeriodeForLoopAndList() { Type = "Senior", UgeDag = DayOfWeek.Monday, SlutTidspunkt = new DateTime(2022, 6, 14, 8, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 7, 0, 0), MaxAlder = 99, MinAlder = 18 };
-                Console.WriteLine(opgave7);
-                opgave7.SletKreds("3");
-                Console.WriteLine(opgave7);
-                opgave7.AdderKreds(new Kreds() { ID = "3", Navn = "OP10.2", Adresse = "Der", AntalDeltagere = 1, MaxAlder = 99, MinAlder = 18 });
-                Console.WriteLine(opgave7);
-                opgave7.StartTidspunkt = new DateTime(2022, 6, 14, 9, 0, 0);
-                Console.WriteLine(opgave7);
+                BadetidsPeriode opgave10 = new BadetidsPeriodeForLoopAndList() { Type = "Senior", UgeDag = DayOfWeek.Monday, SlutTidspunkt = new DateTime(2022, 6, 14, 8, 0, 0), StartTidspunkt = new DateTime(2022, 6, 14, 7, 0, 0), MaxAlder = 99, MinAlder = 18 };
+                Console.WriteLine(opgave10);
+                opgave10.SletKreds("3");
+                Console.WriteLine(opgave10);
+                opgave10.AdderKreds(new Kreds() { ID = "3", Navn = "OP10.2", Adresse = "Der", AntalDeltagere = 1, MaxAlder = 99, MinAlder = 18 });
+                Console.WriteLine(opgave10);
+                opgave10.StartTidspunkt = new DateTime(2022, 6, 14, 9, 0, 0);
+                Console.WriteLine(opgave10);
             }
             catch (ArgumentException ex)
             {
